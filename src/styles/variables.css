@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap");
+
+:root {
+  /* COLORS */
+  --color-bg: #ffffff; /* main white */
+  --color-whitey-grey: #f7f8f9; /* soft background for inputs/cards */
+  --color-bg-light: #f5f5f5; /* light grey background */
+  --color-dark: #0f1e17; /* text headings */
+  --color-text: #0e1513; /* normal text */
+  --color-text-soft: #4b5b55; /* secondary text */
+  --color-bg-very-light: #f7f7f7; /* very light grey */
+  --color-grey-dark: #111111; /* dark grey */
+  --color-grey-medium: #444444; /* medium grey */
+  --color-grey-mid: #333333; /* mid grey */
+  --color-grey-semi: #555555; /* semi grey */
+  --color-grey-light: #666666; /* light grey */
+  --color-grey-slate: #cbd5e0; /* slate grey */
+  --color-white: #ffffff; /* white */
+
+  /* GREEN THEME */
+  --color-dark-green: #1a7561;       /* lighter dark green */
+  --color-dark-green-accent: #28a88a; /* hover accent, lighter and fresh */
+  --color-green-success: #28a745; /* success green */
+  --color-green-success-dark: #1e7e34; /* darker success green */
+  --color-green-spotify: #1DB954; /* spotify green */
+
+  /* LEGACY ALIASES */
+  --primary: var(--color-dark-green);
+  --primary-dark: var(--color-dark-green-accent);
+  --secondary: var(--color-text-soft);
+  --muted: var(--color-text-soft);
+
+  /* BLUE THEME */
+  --color-blue-dark: #0f172a; /* dark blue */
+  --color-blue-mid: #1e293b; /* mid blue */
+  --color-grey-dark-blue: #334155; /* dark blue grey */
+
+  /* TYPOGRAPHY & RADIUS */
+  --font-family: "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-display: "Sora", "Manrope", "Segoe UI", sans-serif;
+  --font-body: var(--font-family);
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  /* EFFECTS */
+  --glass-blur: 18px;
+  --shadow-soft: 0 8px 22px rgba(0, 0, 0, 0.08);
+  --shadow-deep: 0 12px 32px rgba(0, 0, 0, 0.20);
+
+  /* SPACING */
+  --space-1: 6px;
+  --space-2: 12px;
+  --space-3: 20px;
+  --space-4: 32px;
+
+  /* TRANSITION */
+  --transition: 0.25s ease;
+}

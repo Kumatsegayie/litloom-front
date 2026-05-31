@@ -1,0 +1,300 @@
+/* ------------------ PAGE WRAPPER ------------------ */
+.books-page {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--color-whitey-grey);
+  color: var(--color-text);
+}
+
+/* ------------------ BOOKS GRID ------------------ */
+.books-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+/* ------------------ BOOK CARD ------------------ */
+.book-card {
+  position: relative;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-deep);
+}
+
+/* Cover image */
+.book-cover {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover .book-cover {
+  transform: scale(1.03);
+}
+
+/* Book info */
+.book-title {
+  margin: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.book-author {
+  margin: 0 0.5rem 1rem;
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+}
+
+/* Hover overlay */
+.book-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 61, 47, 0.85);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  opacity: 0;
+  border-radius: var(--radius-lg);
+  transition: opacity 0.3s ease;
+}
+
+.book-card:hover .book-card-overlay {
+  opacity: 1;
+}
+
+.book-card-overlay h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+}
+
+.book-card-overlay p {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-card-overlay .btn {
+  background: var(--color-dark-green);
+  color: var(--color-white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  text-align: center;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.book-card-overlay .btn:hover {
+  background: var(--color-dark-green-accent);
+  transform: translateY(-2px);
+}
+
+/* ------------------ POPUP MODAL ------------------ */
+.book-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 999;
+  padding: 60px 2rem 2rem;
+  overflow-y: auto;
+  animation: popupFade 0.3s ease forwards;
+}
+
+/* Card popup content */
+.popup-content {
+  width: 90%;
+  max-width: 950px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  box-shadow: var(--shadow-deep);
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 45px;
+  right: 25px;
+  background: var(--color-white);
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--color-text);
+  padding: 5px 12px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-soft);
+  z-index: 1000;
+  transition: background 0.2s, transform 0.2s, color 0.2s;
+}
+
+.close-btn:hover {
+  background: var(--color-dark-green);
+  color: var(--color-white);
+  transform: scale(1.1);
+}
+
+/* Comments section */
+.popup-comments-section {
+  flex: 1 1 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comments-existing {
+  width: 100%;
+  background-color: var(--color-whitey-grey);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  color: var(--color-text);
+  max-height: 250px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.05);
+}
+
+.comments-existing h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Comment form */
+.comments-form {
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.05);
+}
+
+.comments-form input,
+.comments-form textarea {
+  font-size: 1rem;
+  padding: 0.6rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0,0,0,0.1);
+  outline: none;
+  background: var(--color-white);
+  color: var(--color-text);
+}
+
+.comments-form button {
+  font-size: 1rem;
+  background-color: var(--color-dark-green);
+  color: white;
+  padding: 0.6rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.comments-form button:hover {
+  background-color: var(--color-dark-green-accent);
+}
+
+/* Cover + download button */
+.popup-cover-section {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-cover {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-deep);
+  margin-bottom: 1rem;
+}
+
+.download-btn {
+  padding: 0.8rem 1.8rem;
+  font-size: 1.1rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-dark-green);
+  color: white;
+  box-shadow: var(--shadow-soft);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.download-btn:hover {
+  background-color: var(--color-dark-green-accent);
+  transform: translateY(-2px);
+}
+
+/* ------------------ ANIMATION ------------------ */
+@keyframes popupFade {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media screen and (max-width: 900px) {
+  .popup-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .popup-comments-section,
+  .popup-cover-section {
+    width: 100%;
+  }
+  .popup-cover {
+    max-width: 300px;
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popup-content {
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+  }
+  .popup-cover {
+    max-width: 250px;
+    height: 300px;
+  }
+  .download-btn {
+    width: 100%;
+  }
+  .close-btn {
+    top: 40px;
+  }
+}

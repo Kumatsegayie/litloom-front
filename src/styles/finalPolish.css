@@ -1,0 +1,269 @@
+.main-content {
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 12% -8%, rgba(20, 104, 82, 0.1), transparent 34%),
+    radial-gradient(circle at 92% -12%, rgba(37, 132, 106, 0.08), transparent 34%),
+    linear-gradient(180deg, #f7f9f8 0%, #f4f6f7 48%, #f6f8f8 100%);
+}
+
+.content-container {
+  min-width: 0;
+  width: 100%;
+}
+
+.content-container > * {
+  width: 100%;
+  max-width: 100%;
+}
+
+.page-discover-title {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.home-feed-header h1,
+.search-container h1,
+.article-single-layout h1,
+.blog-single-layout h1,
+.book-info h1,
+.poem-single-layout h1,
+.painting-header h1,
+.podcast-meta-info h1,
+.pro-hero h1 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.home-feed-page,
+.articles-page,
+.blogs-page,
+.books-page,
+.podcasts-page,
+.poems-page,
+.paintings-page,
+.article-single-page,
+.blog-single-page,
+.book-single,
+.podcast-single-page,
+.podcast-series-page,
+.poem-single-page,
+.painting-single,
+.search-page,
+.about-page,
+.subscribe-page-pro,
+.contact-page-pro,
+.privacy-page {
+  position: relative;
+  font-family: var(--font-family) !important;
+}
+
+.articles-feed,
+.blogs-feed,
+.books-grid,
+.podcasts-feed,
+.poems-feed,
+.paintings-feed,
+.search-results {
+  align-items: stretch;
+}
+
+.home-unified-feed {
+  align-items: start !important;
+}
+
+.home-unified-card {
+  align-self: start;
+  height: auto;
+}
+
+.home-unified-feed > *,
+.articles-feed > *,
+.blogs-feed > *,
+.books-grid > *,
+.podcasts-feed > *,
+.poems-feed > *,
+.paintings-feed > *,
+.search-results > * {
+  animation: card-enter 300ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.home-unified-feed > *:nth-child(2n),
+.articles-feed > *:nth-child(2n),
+.blogs-feed > *:nth-child(2n),
+.books-grid > *:nth-child(2n),
+.podcasts-feed > *:nth-child(2n),
+.poems-feed > *:nth-child(2n),
+.paintings-feed > *:nth-child(2n),
+.search-results > *:nth-child(2n) {
+  animation-delay: 60ms;
+}
+
+.home-unified-feed > *:nth-child(3n),
+.articles-feed > *:nth-child(3n),
+.blogs-feed > *:nth-child(3n),
+.books-grid > *:nth-child(3n),
+.podcasts-feed > *:nth-child(3n),
+.poems-feed > *:nth-child(3n),
+.paintings-feed > *:nth-child(3n),
+.search-results > *:nth-child(3n) {
+  animation-delay: 110ms;
+}
+
+.home-unified-card,
+.article-card,
+.blog-card,
+.book-card,
+.podcast-card,
+.poem-card,
+.painting-card,
+.search-result-item {
+  border: 1px solid rgba(13, 59, 47, 0.12);
+  box-shadow: 0 8px 24px rgba(15, 24, 27, 0.06);
+  transition:
+    transform 200ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.home-unified-card:hover,
+.article-card:hover,
+.blog-card:hover,
+.book-card:hover,
+.podcast-card:hover,
+.poem-card:hover,
+.painting-card:hover,
+.search-result-item:hover {
+  border-color: rgba(16, 99, 77, 0.26);
+  box-shadow: 0 16px 34px rgba(12, 34, 29, 0.12);
+}
+
+.home-unified-thumb,
+.article-thumb,
+.blog-thumb,
+.book-card img,
+.podcast-thumb,
+.poem-thumb,
+.painting-thumb {
+  position: relative;
+  overflow: hidden;
+  background: #e8eeec;
+}
+
+.home-unified-thumb img,
+.article-thumb img,
+.blog-thumb img,
+.book-card img,
+.podcast-thumb img,
+.poem-thumb img,
+.painting-thumb img {
+  transform: scale(1.001);
+  transition: transform 320ms ease;
+}
+
+.home-unified-card:hover .home-unified-thumb img,
+.article-card:hover .article-thumb img,
+.blog-card:hover .blog-thumb img,
+.book-card:hover img,
+.podcast-card:hover .podcast-thumb img,
+.poem-card:hover .poem-thumb img,
+.painting-card:hover .painting-thumb img {
+  transform: scale(1.04);
+}
+
+.article-info h2,
+.blog-info h2,
+.book-card-content h3,
+.podcast-info h2,
+.poem-info h2,
+.painting-info h2,
+.search-result-title {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.article-preview,
+.blog-preview,
+.book-preview,
+.podcast-preview,
+.poem-preview,
+.painting-desc,
+.search-result-description {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.nav-search-suggestions {
+  max-height: min(68vh, 520px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: card-enter 160ms ease-out both;
+}
+
+.nav-search-suggestions::-webkit-scrollbar {
+  width: 7px;
+}
+
+.nav-search-suggestions::-webkit-scrollbar-thumb {
+  background: rgba(15, 61, 47, 0.25);
+  border-radius: 999px;
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .search-page {
+    overflow-x: clip;
+  }
+
+  .mobile-dropup-menu {
+    max-width: min(92vw, 220px);
+  }
+}
+
+@media (max-width: 390px) {
+  .mobile-footer-nav {
+    gap: 2px;
+    padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-footer-link {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+  }
+
+  .mobile-footer-home {
+    width: 46px;
+    height: 46px;
+    margin-top: -18px;
+    border-radius: 14px;
+  }
+
+  .mobile-dropup-menu {
+    right: -2px;
+    min-width: 160px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-unified-feed > *,
+  .articles-feed > *,
+  .blogs-feed > *,
+  .books-grid > *,
+  .podcasts-feed > *,
+  .poems-feed > *,
+  .paintings-feed > *,
+  .search-results > *,
+  .nav-search-suggestions {
+    animation: none !important;
+  }
+}

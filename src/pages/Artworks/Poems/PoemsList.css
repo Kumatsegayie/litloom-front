@@ -1,0 +1,126 @@
+.poems-feed-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--color-bg-light);
+}
+
+/* Poem post card */
+.poem-post {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.poem-post:hover {
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.poem-post h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+  color: var(--color-grey-dark);
+}
+
+.poem-preview {
+  font-size: 1rem;
+  color: var(--color-grey-medium);
+  line-height: 1.5;
+}
+
+.see-more-btn,
+.see-less-btn {
+  margin-top: 0.5rem;
+  background: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.see-more-btn:hover,
+.see-less-btn:hover {
+  background: #0056b3;
+}
+
+.poem-expanded {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.poem-content {
+  font-size: 1rem;
+  color: var(--color-grey-mid);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Comments */
+.comments-section {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.comments-list p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.comments-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.comments-section input,
+.comments-section textarea {
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.comments-section button {
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--color-green-success);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.comments-section button:hover {
+  background-color: var(--color-green-success-dark);
+}
+
+/* Scrollbar styling */
+.comments-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.comments-section::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .poems-feed-page {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,54 @@
+.article-submission-grid {
+  align-items: stretch;
+}
+
+.article-submission-page .pro-hero p {
+  max-width: 780px;
+}
+
+.article-submission-form {
+  margin-top: 12px;
+}
+
+.article-submission-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.article-submission-row > div {
+  display: grid;
+  gap: 10px;
+}
+
+.article-submission-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #26443d;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin: 4px 0 2px;
+}
+
+.article-submission-check input {
+  width: 16px;
+  height: 16px;
+}
+
+.article-submission-form input[type="file"] {
+  padding: 9px 10px;
+  background: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .article-submission-grid {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 760px) {
+  .article-submission-row {
+    grid-template-columns: 1fr;
+  }
+}

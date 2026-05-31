@@ -1,0 +1,28 @@
+.footer {
+  text-align: center;
+  padding: 22px 0 26px;
+  color: #64706b;
+  font-size: 0.82rem;
+  border-top: 1px solid rgba(15, 61, 47, 0.08);
+  background: linear-gradient(180deg, rgba(248, 250, 249, 0.9), rgba(244, 247, 246, 0.95));
+}
+
+.footer-links {
+  margin-bottom: var(--space-2);
+}
+
+.footer-links a {
+  margin: 0 var(--space-2);
+  color: var(--color-text-soft);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    display: none;
+  }
+}

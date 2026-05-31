@@ -1,0 +1,146 @@
+.mobile-footer-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-footer-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    background: rgba(248, 249, 250, 0.97);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 0, 0, 0.09);
+    z-index: 1200;
+    box-shadow: 0 -8px 20px rgba(8, 24, 20, 0.08);
+  }
+
+  .mobile-footer-link {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #5d5d5d;
+    text-decoration: none;
+    transition: background 0.18s ease, color 0.18s ease;
+    flex: 0 0 auto;
+  }
+
+  .mobile-footer-link.active {
+    color: #0f3d2f;
+    background: rgba(15, 61, 47, 0.14);
+  }
+
+  .mobile-footer-home {
+    width: 54px;
+    height: 54px;
+    margin-top: -22px;
+    border-radius: 16px;
+    color: #fff;
+    background: linear-gradient(135deg, #0f3d2f 0%, #1b6650 100%);
+    box-shadow: 0 8px 20px rgba(15, 61, 47, 0.28);
+  }
+
+  .mobile-footer-home.active {
+    color: #fff;
+    background: linear-gradient(135deg, #0f3d2f 0%, #145441 100%);
+  }
+
+  .mobile-others-wrapper {
+    position: relative;
+  }
+
+  .mobile-artworks-wrapper {
+    position: relative;
+  }
+
+  .mobile-others-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .mobile-artworks-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .mobile-dropup-menu {
+    position: absolute;
+    bottom: 50px;
+    min-width: 172px;
+    background: rgba(248, 249, 250, 0.98);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 6px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    animation: mobileDropupIn 160ms ease-out both;
+  }
+
+  .mobile-artworks-menu {
+    right: 0;
+  }
+
+  .mobile-others-menu {
+    right: 0;
+  }
+
+  .mobile-dropup-menu button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background: transparent;
+    color: #353535;
+    padding: 8px 8px;
+    border-radius: 8px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.84rem;
+  }
+
+  .mobile-dropup-menu button:hover {
+    background: rgba(15, 61, 47, 0.1);
+    color: #0f3d2f;
+  }
+
+  @keyframes mobileDropupIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .mobile-footer-nav {
+    gap: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .mobile-footer-link {
+    width: 33px;
+    height: 33px;
+  }
+
+  .mobile-footer-home {
+    width: 48px;
+    height: 48px;
+    margin-top: -20px;
+  }
+}

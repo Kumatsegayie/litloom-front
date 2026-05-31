@@ -1,0 +1,12 @@
+.about-grid {
+  align-items: stretch;
+}
+
+.about-note {
+  margin: 14px 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #54706a;
+  font-size: 0.84rem;
+}

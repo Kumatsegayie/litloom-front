@@ -1,0 +1,16 @@
+.subscribe-page-pro .pro-grid {
+  align-items: stretch;
+}
+
+.subscribe-form-pro {
+  margin-top: 12px;
+}
+
+.subscribe-note-pro {
+  margin: 12px 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #54706a;
+  font-size: 0.84rem;
+}

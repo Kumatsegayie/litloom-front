@@ -1,0 +1,132 @@
+.lit-toast-viewport {
+  position: fixed;
+  top: calc(72px + env(safe-area-inset-top));
+  right: 16px;
+  z-index: 2400;
+  display: grid;
+  gap: 10px;
+  width: min(380px, calc(100vw - 24px));
+  pointer-events: none;
+}
+
+.lit-toast {
+  pointer-events: auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(14, 48, 40, 0.18);
+  background: #ffffff;
+  color: #1b2f29;
+  box-shadow: 0 14px 30px rgba(8, 24, 20, 0.16);
+  padding: 11px 12px;
+  animation: lit-toast-in 180ms ease-out;
+}
+
+.lit-toast-icon-wrap {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f513f;
+  background: rgba(15, 81, 63, 0.1);
+}
+
+.lit-toast-body {
+  min-width: 0;
+}
+
+.lit-toast-title {
+  margin: 0 0 2px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #173a31;
+}
+
+.lit-toast-message {
+  margin: 0;
+  font-size: 0.87rem;
+  line-height: 1.35;
+  color: #2d4a42;
+}
+
+.lit-toast-close {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #486760;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lit-toast-close:hover {
+  background: rgba(8, 24, 20, 0.08);
+}
+
+.lit-toast-success .lit-toast-icon-wrap {
+  color: #0a6b4e;
+  background: rgba(10, 107, 78, 0.12);
+}
+
+.lit-toast-info .lit-toast-icon-wrap {
+  color: #1f5f8a;
+  background: rgba(31, 95, 138, 0.13);
+}
+
+.lit-toast-warning .lit-toast-icon-wrap {
+  color: #855a0c;
+  background: rgba(133, 90, 12, 0.15);
+}
+
+.lit-toast-error .lit-toast-icon-wrap {
+  color: #9f1239;
+  background: rgba(159, 18, 57, 0.12);
+}
+
+.lit-toast-success {
+  border-color: rgba(10, 107, 78, 0.25);
+}
+
+.lit-toast-info {
+  border-color: rgba(31, 95, 138, 0.28);
+}
+
+.lit-toast-warning {
+  border-color: rgba(133, 90, 12, 0.3);
+}
+
+.lit-toast-error {
+  border-color: rgba(159, 18, 57, 0.28);
+}
+
+@keyframes lit-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .lit-toast-viewport {
+    top: calc(62px + env(safe-area-inset-top));
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
+
+  .lit-toast {
+    border-radius: 11px;
+    padding: 10px;
+  }
+}
