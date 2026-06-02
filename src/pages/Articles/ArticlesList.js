@@ -20,6 +20,17 @@ const ArticlesList = () => {
       try {
         setLoading(true);
         const data = await getArticles();
+
+        console.log("========== ARTICLES ==========");
+        console.table(
+          data.map((a) => ({
+            id: a.id,
+            slug: a.slug,
+            title: a.title,
+          }))
+        );
+        console.log("==============================");
+
         setArticles(data);
       } catch (err) {
         setError(err.message);
@@ -42,8 +53,11 @@ const ArticlesList = () => {
 
   // Save scroll position when navigating to article
   const handleArticleClick = (articleRef) => {
-    sessionStorage.setItem('articlesScrollPosition', window.scrollY.toString());
-    sessionStorage.setItem('articlesNavigated', 'true');
+    console.log("CLICKED ARTICLE REF:", articleRef);
+
+    sessionStorage.setItem("articlesScrollPosition", window.scrollY.toString());
+    sessionStorage.setItem("articlesNavigated", "true");
+
     navigate(`/articles/${articleRef}`);
   };
 

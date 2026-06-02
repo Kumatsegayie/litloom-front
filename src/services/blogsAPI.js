@@ -4,7 +4,10 @@ export { STRAPI_URL };
 async function handleResponse(res) {
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(text || res.statusText);
+    const error = new Error(text || res.statusText || `Request failed with status ${res.status}`);
+    error.status = res.status;
+    error.body = text;
+    throw error;
   }
   return res.json();
 }
@@ -41,7 +44,7 @@ export async function getBlog(id) {
       return mapBlog(data.data);
     }
   } catch (error) {
-    if (String(error?.message || "").includes("404")) {
+    if (error?.status === 404 || String(error?.message || "").includes("404")) {
       const fallback = await tryFetchBySlug(docId);
       if (fallback) return fallback;
       return null;

@@ -12,7 +12,6 @@ import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import MobileFooterNav from "./components/mobileFooterNav/MobileFooterNav";
 import Footer from "./components/footer/Footer";
-import PullToRefresh from "./components/pullToRefresh/PullToRefresh";
 
 // pages
 import Home from "./pages/Home/Home";
@@ -224,11 +223,6 @@ const App = () => {
 
       <Navbar
         onToggleCollapse={toggleSidebar}
-      />
-      <PullToRefresh
-        enabled={isMobile}
-        topOffset={navHeight + 6}
-        onRefresh={() => window.location.reload()}
       />
       <Sidebar 
         collapsed={sidebarCollapsed} 
