@@ -50,7 +50,7 @@ const BlogSingle = () => {
       .then(raw => {
         if (!mounted) return;
         if (!raw) {
-          setError('Blog not found');
+          setNotFound(true);
           setBlog(null);
           return;
         }

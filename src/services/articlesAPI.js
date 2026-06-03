@@ -2,9 +2,17 @@ import { STRAPI_URL } from "./strapiBaseURL";
 export { STRAPI_URL };
 
 async function handleResponse(res) {
+  const contentType = String(res.headers.get("content-type") || "").toLowerCase();
   if (!res.ok) {
     const text = await res.text();
     const error = new Error(text || res.statusText || `Request failed with status ${res.status}`);
+    error.status = res.status;
+    error.body = text;
+    throw error;
+  }
+  if (!contentType.includes("application/json")) {
+    const text = await res.text();
+    const error = new Error(text || "Unexpected non-JSON response");
     error.status = res.status;
     error.body = text;
     throw error;
@@ -36,25 +44,14 @@ async function tryFetchBySlug(slug) {
 }
 
 export async function getArticle(id) {
-  // Strapi v5 public REST: GET /api/articles/:documentId?populate[]=thumbnail&populate[]=images&populate[]=category&populate[]=tags
-  const docId = String(id || "").trim();
-  const url = `${STRAPI_URL}/api/articles/${docId}?populate[]=thumbnail&populate[]=images&populate[]=category&populate[]=tags`;
+  const lookupValue = String(id || "").trim();
   try {
-    const res = await fetch(url, { method: "GET" });
-    const data = await handleResponse(res);
-    if (data && data.data) {
-      return mapArticle(data.data);
-    }
+    const slugFirst = await tryFetchBySlug(lookupValue);
+    if (slugFirst) return slugFirst;
   } catch (error) {
-    if (error?.status === 404 || String(error?.message || "").includes("404")) {
-      const fallback = await tryFetchBySlug(docId);
-      if (fallback) return fallback;
-      return null;
-    }
-    throw error;
+    return null;
   }
-  const fallback = await tryFetchBySlug(docId);
-  return fallback;
+  return null;
 }
 
 export async function getArticles() {

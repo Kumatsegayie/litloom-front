@@ -50,7 +50,7 @@ const ArticleSingle = () => {
       .then(raw => {
         if (!mounted) return;
         if (!raw) {
-          setError('Article not found');
+          setNotFound(true);
           setArticle(null);
           return;
         }
