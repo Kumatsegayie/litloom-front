@@ -1,10 +1,34 @@
 import { STRAPI_URL } from "./strapiBaseURL";
 export { STRAPI_URL };
 
-async function handleResponse(res) {
-  if (!res.ok) {
+async function parseErrorBody(res) {
+  try {
     const text = await res.text();
-    throw new Error(text || res.statusText);
+    if (!text) return "";
+    try {
+      const json = JSON.parse(text);
+      return json?.error?.message || json?.message || text;
+    } catch {
+      return text;
+    }
+  } catch {
+    return "";
+  }
+}
+
+async function handleResponse(res) {
+  const contentType = String(res.headers.get("content-type") || "").toLowerCase();
+  if (!res.ok) {
+    const text = await parseErrorBody(res);
+    const error = new Error(text || `Request failed with status ${res.status}`);
+    error.status = res.status;
+    throw error;
+  }
+  if (!contentType.includes("application/json")) {
+    const text = await res.text();
+    const error = new Error(text || "Unexpected non-JSON response");
+    error.status = res.status;
+    throw error;
   }
   return res.json();
 }
@@ -33,23 +57,25 @@ async function tryFetchBySlug(slug) {
 
 export async function getPoem(id) {
   const docId = String(id || "").trim();
-  const url = `${STRAPI_URL}/api/poems/${docId}?populate[]=thumbnail&populate[]=images&populate[]=tags`;
+  if (!docId) return null;
+
+  const bySlug = await tryFetchBySlug(docId);
+  if (bySlug) return bySlug;
+
   try {
+    const url = `${STRAPI_URL}/api/poems/${docId}?populate[]=thumbnail&populate[]=images&populate[]=tags`;
     const res = await fetch(url, { method: "GET" });
     const data = await handleResponse(res);
     if (data && data.data) {
       return mapPoem(data.data);
     }
   } catch (error) {
-    if (String(error?.message || "").includes("404")) {
-      const fallback = await tryFetchBySlug(docId);
-      if (fallback) return fallback;
+    if (Number(error?.status) === 404 || String(error?.message || "").includes("404")) {
       return null;
     }
     throw error;
   }
-  const fallback = await tryFetchBySlug(docId);
-  return fallback;
+  return null;
 }
 
 export async function getPoems() {
